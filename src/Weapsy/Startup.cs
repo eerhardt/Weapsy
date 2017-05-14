@@ -189,11 +189,12 @@ namespace Weapsy
                 startup.Configure(app);
             }
 
-            var applicationPartManager = app.ApplicationServices.GetRequiredService<ApplicationPartManager>();
-            Parallel.ForEach(AppLoader.Instance(hostingEnvironment).AppAssemblies, assembly =>
-            {
-                applicationPartManager.ApplicationParts.Add(new AssemblyPart(assembly));
-            });
+            //Temporary disabled
+            //var applicationPartManager = app.ApplicationServices.GetRequiredService<ApplicationPartManager>();
+            //Parallel.ForEach(AppLoader.Instance(hostingEnvironment).AppAssemblies, assembly =>
+            //{
+            //    applicationPartManager.ApplicationParts.Add(new AssemblyPart(assembly));
+            //});
 
             app.UseIdentity();
 

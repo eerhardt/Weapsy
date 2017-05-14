@@ -25,8 +25,6 @@ namespace Weapsy.Mvc.Apps
         private AppLoader()
         {
             var rootFolder = new DirectoryInfo(_hostingEnvironment.ContentRootPath);
-            var appsRootFolder = new DirectoryInfo(Path.Combine(_hostingEnvironment.ContentRootPath, "Apps"));
-
             foreach (var file in rootFolder.GetFiles("*.dll", SearchOption.TopDirectoryOnly))
             {
                 if (_loadedAssemblies.FirstOrDefault(x => x == file.Name) == null)
@@ -35,6 +33,7 @@ namespace Weapsy.Mvc.Apps
                 }
             }
 
+            var appsRootFolder = new DirectoryInfo(Path.Combine(_hostingEnvironment.ContentRootPath, "Apps"));
             foreach (var appFolder in appsRootFolder.GetDirectories())
             {
                 AppDescriptors.Add(new AppDescriptor(appFolder.Name));

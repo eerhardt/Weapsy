@@ -2,5 +2,6 @@
 
 @foreach (var module in Model.Modules)
 {
-    @await Component.InvokeAsync("Module", new { model = module })
+    <span style="font-style: italic;">(Modules temporarily disabled)</span>
+    @*@await Component.InvokeAsync("Module", new { model = module })*@
 }
